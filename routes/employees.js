@@ -3,12 +3,22 @@ import Data from '../models/model.js';
 
 const router = express.Router();
 
-router.get('/', (req, res) =>{
-    res.send('GET REQUEST');
+router.get('/', async (req, res) =>{
+    try {
+        const data = await Data.find();
+        res.json(data);
+    } catch(error){
+        res.status(500).json({ message: error.message});
+    }
 });
 
-router.get('/:id', (req, res) =>{
-    res.send(req.params.id);
+router.get('/{id}', async (req, res) =>{
+    try {
+        const dataID = await Data.findById(req.params.id);
+        res.json(dataID);
+    } catch (error) {
+        res.status(500).json({ message: error.message});
+    }
 });
 
 router.post('/', async (req, res) =>{
