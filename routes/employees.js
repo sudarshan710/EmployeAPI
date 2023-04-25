@@ -12,7 +12,7 @@ router.get('/', async (req, res) =>{
     }
 });
 
-router.get('/{id}', async (req, res) =>{
+router.get('/:id', async (req, res) =>{
     try {
         const dataID = await Data.findById(req.params.id);
         res.json(dataID);
