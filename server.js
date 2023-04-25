@@ -13,9 +13,7 @@ app.use(bodyParser.json());
 mongoose.connect(process.env.DATABASE_URL, { UseNewUrlParser:true});
 const db = mongoose.connection;
 
-//  Connect to database, throw error if fails
 db.on('error', (error) => console.log(`Error : ${error}`));
-//  It will run once, to check connection
 db.once('connected', () => console.log('Database connected!'));
 
 import userRoutes from './routes/employees.js'

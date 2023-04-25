@@ -19,8 +19,6 @@ const dataScheme = new mongoose.Schema({
     }
 })
 
-// export default dataScheme;
-
 const Model = mongoose.model('Employee', dataScheme);
 
 export default Model;
